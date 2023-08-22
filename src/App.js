@@ -12,15 +12,15 @@ export default function App(){
   const[isOpen,setIsOpen] = useState(true)
 
   function handlePrevious(){
-    if(steps>1) setStep(steps-1)
+    if(steps>1) setStep((currentStep)=>currentStep-1)
   }
   function handleNext(){
-    if(steps<3) setStep(steps+1)
+    if(steps<3) setStep((currentStep)=>currentStep+1)
 
   }
   return(
     <>
-    <button className="close" onClick={()=> setIsOpen(!isOpen)}>&times;</button>
+    <button className="close" onClick={()=> setIsOpen((currentOpen)=>!currentOpen)}>&times;</button>
 
     {isOpen && (<div className="steps">
     <div className="numbers">
