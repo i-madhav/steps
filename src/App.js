@@ -9,11 +9,14 @@ const messages = [
 
 export default function App(){
   const[steps,setStep] = useState(1);
+  const[test,setTest] = useState({name:"Madhav"})
+
   function handlePrevious(){
     if(steps>1) setStep(steps-1)
   }
   function handleNext(){
     if(steps<3) setStep(steps+1)
+    setTest({name:"Sharma"})
   }
   return(
     <div className="steps">
@@ -22,7 +25,7 @@ export default function App(){
       <div  className={steps>=2 ? "active": ""}>2</div>
       <div  className={steps>=3 ? "active": ""}>3</div>
       </div>
-      <p className="message">Steps {steps}: {messages[steps-1]} </p>
+      <p className="message">Steps {steps}: {messages[steps-1]} {test.name} </p>
       <div className="buttons">
         <button style={{backgroundColor:"#7950f2" , color:"#fff"}}
                 onClick={handlePrevious}>previous</button>
